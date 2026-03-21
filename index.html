@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCADE HUB</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>ARCADE HUB</h1>
+  <p>// THREE GAMES · ONE ARENA //</p>
+</header>
+
+<!-- Scoreboard -->
+<div class="scoreboard">
+  <div class="score-item ttt">
+    <span class="score-label">TIC TAC TOE</span>
+    <span class="score-value" id="score-ttt">0</span>
+  </div>
+  <div class="score-item rps">
+    <span class="score-label">ROCK · PAPER</span>
+    <span class="score-value" id="score-rps">0</span>
+  </div>
+  <div class="score-item mem">
+    <span class="score-label">MEMORY</span>
+    <span class="score-value" id="score-mem">0</span>
+  </div>
+  <div class="score-item total">
+    <span class="score-label">TOTAL XP</span>
+    <span class="score-value" id="score-total">0</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="game-nav">
+  <button class="nav-btn active" data-game="ttt" onclick="switchGame('ttt')">Tic Tac Toe</button>
+  <button class="nav-btn" data-game="rps" onclick="switchGame('rps')">Rock · Paper</button>
+  <button class="nav-btn" data-game="mem" onclick="switchGame('mem')">Memory</button>
+</div>
+
+<div class="game-container">
+
+  <!-- TIC TAC TOE -->
+  <div class="game-panel active" id="panel-ttt" data-label="GAME_01">
+    <div class="game-title" style="color:var(--neon-cyan)">TIC TAC TOE</div>
+    <div class="ttt-mode">
+      <button class="mode-btn active" id="mode-2p" onclick="tttSetMode('2p')">2 PLAYER</button>
+      <button class="mode-btn" id="mode-ai" onclick="tttSetMode('ai')">VS CPU</button>
+    </div>
+    <div class="status-msg" id="ttt-status">Player X's turn</div>
+    <div class="ttt-board" id="ttt-board"></div>
+    <div class="ttt-controls">
+      <button class="btn btn-cyan" onclick="tttReset()">NEW GAME</button>
+    </div>
+  </div>
+
+  <!-- ROCK PAPER SCISSORS -->
+  <div class="game-panel" id="panel-rps" data-label="GAME_02">
+    <div class="game-title" style="color:var(--neon-pink)">ROCK · PAPER · SCISSORS</div>
+    <div class="rps-score-row">
+      <div class="win-score"><span>WIN </span><b id="rps-w">0</b></div>
+      <div class="tie-score"><span>DRAW </span><b id="rps-d">0</b></div>
+      <div class="lose-score"><span>LOSE </span><b id="rps-l">0</b></div>
+    </div>
+    <div class="rps-arena">
+      <span class="rps-player" id="rps-player">🤔</span>
+      <span class="rps-vs">VS</span>
+      <span class="rps-cpu" id="rps-cpu">🤖</span>
+    </div>
+    <div class="status-msg" id="rps-status">Choose your weapon!</div>
+    <div class="rps-choices">
+      <button class="rps-btn" onclick="rpsPlay('rock')" title="Rock">🪨</button>
+      <button class="rps-btn" onclick="rpsPlay('paper')" title="Paper">📄</button>
+      <button class="rps-btn" onclick="rpsPlay('scissors')" title="Scissors">✂️</button>
+    </div>
+    <div class="ttt-controls">
+      <button class="btn btn-pink" onclick="rpsReset()">RESET</button>
+    </div>
+  </div>
+
+  <!-- MEMORY GAME -->
+  <div class="game-panel" id="panel-mem" data-label="GAME_03">
+    <div class="game-title" style="color:var(--neon-yellow)">MEMORY MATCH</div>
+    <div class="mem-info">
+      <span>MOVES: <b id="mem-moves">0</b></span>
+      <span>PAIRS: <b id="mem-pairs">0</b>/8</span>
+      <span>TIME: <b id="mem-time">0s</b></span>
+    </div>
+    <div class="mem-board" id="mem-board"></div>
+    <div class="mem-controls">
+      <button class="btn btn-yellow" onclick="memReset()">NEW GAME</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
