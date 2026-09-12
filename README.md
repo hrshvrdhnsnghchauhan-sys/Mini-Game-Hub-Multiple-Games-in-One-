@@ -1,4 +1,4 @@
-#  Mini Game Hub
+#  Mini Game Hub!
 
 ##  Live Demo
 
